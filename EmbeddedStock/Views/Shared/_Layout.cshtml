@@ -15,18 +15,25 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.ie.min.css" />
+    <![endif]-->
 </head>
 <body>
     @Html.Partial("_NavBar")
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - Embedded Stock</p>
-        </footer>
-    </div>
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; 2017 - Embedded Stock</p>
+    </footer>
+</div>
 
-    <environment include="Development">
+<a class="github-fork-ribbon fixed left-bottom" href="https://github.com/jeppestaerk/ITTWEB-Assignment5-EmbeddedStock" data-ribbon="Fork on GitHub" title="Fork on GitHub">Fork on GitHub</a>
+
+
+<environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>

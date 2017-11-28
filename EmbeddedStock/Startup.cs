@@ -24,7 +24,7 @@ namespace EmbeddedStock
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Uri dbUri = new Uri(Environment.GetEnvironmentVariable("JAWSDB_URL"));
+            Uri dbUri = new Uri(@"mysql://tsxzu20hi5xnyur4:zwmapp17fg54t9ff@vlvlnl1grfzh34vj.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/ai455og2qxv4iucl");
 
             var mySqlConnectionString = new MySqlConnectionStringBuilder
             {

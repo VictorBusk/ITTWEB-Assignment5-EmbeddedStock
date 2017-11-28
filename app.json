@@ -1,0 +1,15 @@
+
+{
+  "name": "ITTWEB-Assignment5-EmbeddedStock",
+  "website": "https://ittweb5.herokuapp.com/",
+  "repository": "https://github.com/jeppestaerk/ITTWEB-Assignment5-EmbeddedStock",
+  "keywords": ["dotnet", "core", "ef", "mvc"],
+  "addons": [
+    {
+      "plan": "jawsdb:kitefin"
+    },
+    {
+      "plan": "papertrail:choklad"
+    }
+  ]
+}
