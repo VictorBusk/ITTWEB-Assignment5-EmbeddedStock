@@ -23,8 +23,10 @@ namespace EmbeddedStock
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT ");
+            
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySQL(connectionString.Contains("mysql") ? connectionString : Configuration.GetConnectionString("DefaultConnection")));
             
             services.AddMvc();
         }
