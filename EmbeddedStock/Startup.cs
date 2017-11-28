@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using EmbeddedStock.Data;
+using MySql.Data.MySqlClient;
 
 namespace EmbeddedStock
 {
@@ -23,10 +24,19 @@ namespace EmbeddedStock
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT ");
+            Uri dbUri = new Uri(Environment.GetEnvironmentVariable("JAWSDB_URL"));
+
+            var mySqlConnectionString = new MySqlConnectionStringBuilder
+            {
+                Server = dbUri.Host,
+                Database = dbUri.LocalPath.Replace("/",""),
+                UserID = dbUri.UserInfo.Split(":")[0],
+                Password = dbUri.UserInfo.Split(":")[1],
+                Port = (uint) dbUri.Port
+            };
             
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySQL(connectionString.Contains("mysql") ? connectionString : Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySql(mySqlConnectionString.ConnectionString));
             
             services.AddMvc();
         }

@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
 namespace EmbeddedStock.Migrations
 {
-    public partial class Initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,9 +13,9 @@ namespace EmbeddedStock.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    CategoryId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true)
+                    CategoryId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -25,11 +26,11 @@ namespace EmbeddedStock.Migrations
                 name: "ESImages",
                 columns: table => new
                 {
-                    ESImageId = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    ImageData = table.Column<byte[]>(type: "BLOB", nullable: true),
-                    ImageMimeType = table.Column<string>(type: "TEXT", maxLength: 128, nullable: true),
-                    Thumbnail = table.Column<byte[]>(type: "BLOB", nullable: true)
+                    ESImageId = table.Column<long>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    ImageData = table.Column<byte[]>(nullable: true),
+                    ImageMimeType = table.Column<string>(maxLength: 128, nullable: true),
+                    Thumbnail = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -40,18 +41,18 @@ namespace EmbeddedStock.Migrations
                 name: "ComponentTypes",
                 columns: table => new
                 {
-                    ComponentTypeId = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    AdminComment = table.Column<string>(type: "TEXT", nullable: true),
-                    Datasheet = table.Column<string>(type: "TEXT", nullable: true),
-                    ImageESImageId = table.Column<long>(type: "INTEGER", nullable: true),
-                    ImageUrl = table.Column<string>(type: "TEXT", nullable: true),
-                    Info = table.Column<string>(type: "TEXT", nullable: true),
-                    Location = table.Column<string>(type: "TEXT", nullable: true),
-                    Manufacturer = table.Column<string>(type: "TEXT", nullable: true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Status = table.Column<int>(type: "INTEGER", nullable: false),
-                    WikiLink = table.Column<string>(type: "TEXT", nullable: true)
+                    ComponentTypeId = table.Column<long>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    AdminComment = table.Column<string>(nullable: true),
+                    Datasheet = table.Column<string>(nullable: true),
+                    ImageESImageId = table.Column<long>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true),
+                    Info = table.Column<string>(nullable: true),
+                    Location = table.Column<string>(nullable: true),
+                    Manufacturer = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false),
+                    WikiLink = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -68,9 +69,9 @@ namespace EmbeddedStock.Migrations
                 name: "CategoryComponentType",
                 columns: table => new
                 {
-                    CategoryId = table.Column<long>(type: "INTEGER", nullable: false),
-                    ComponentTypeId = table.Column<long>(type: "INTEGER", nullable: false),
-                    CategoryId1 = table.Column<int>(type: "INTEGER", nullable: true)
+                    CategoryId = table.Column<long>(nullable: false),
+                    ComponentTypeId = table.Column<long>(nullable: false),
+                    CategoryId1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -93,15 +94,15 @@ namespace EmbeddedStock.Migrations
                 name: "Components",
                 columns: table => new
                 {
-                    ComponentId = table.Column<long>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    AdminComment = table.Column<string>(type: "TEXT", nullable: true),
-                    ComponentTypeId = table.Column<long>(type: "INTEGER", nullable: false),
-                    CurrentLoanInformationId = table.Column<long>(type: "INTEGER", nullable: true),
-                    Number = table.Column<int>(type: "INTEGER", nullable: false),
-                    SerialNo = table.Column<string>(type: "TEXT", nullable: true),
-                    Status = table.Column<int>(type: "INTEGER", nullable: false),
-                    UserComment = table.Column<string>(type: "TEXT", nullable: true)
+                    ComponentId = table.Column<long>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    AdminComment = table.Column<string>(nullable: true),
+                    ComponentTypeId = table.Column<long>(nullable: false),
+                    CurrentLoanInformationId = table.Column<long>(nullable: true),
+                    Number = table.Column<int>(nullable: false),
+                    SerialNo = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false),
+                    UserComment = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

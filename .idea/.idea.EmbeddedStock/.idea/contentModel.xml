@@ -23,8 +23,8 @@
         </e>
         <e p="EmbeddedStock.csproj" t="IncludeRecursive" />
         <e p="Migrations" t="Include">
-          <e p="20171114124940_Initial.cs" t="Include" />
-          <e p="20171114124940_Initial.Designer.cs" t="Include" />
+          <e p="20171128141453_init.cs" t="Include" />
+          <e p="20171128141453_init.Designer.cs" t="Include" />
           <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
