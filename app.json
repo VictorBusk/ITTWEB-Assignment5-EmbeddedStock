@@ -11,5 +11,10 @@
     {
       "plan": "papertrail:choklad"
     }
+  ],
+  "buildpacks": [
+    {
+      "url": "hhttps://github.com/jincod/dotnetcore-buildpack"
+    }
   ]
 }
